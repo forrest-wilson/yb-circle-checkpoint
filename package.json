@@ -1,0 +1,22 @@
+{
+  "name": "yb-circle-checkpoint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forrest-wilson/yb-circle-checkpoint.git"
+  },
+  "author": "Forrest Wilson-Jennings",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/forrest-wilson/yb-circle-checkpoint/issues"
+  },
+  "homepage": "https://github.com/forrest-wilson/yb-circle-checkpoint#readme",
+  "dependencies": {
+    "bootstrap": "3.3.7"
+  }
+}
