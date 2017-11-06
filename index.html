@@ -53,6 +53,14 @@
             top: 80%;
             bottom: 0;
             background-color: blue;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .buttons button {
+            margin: 20px;
+            padding: 0;
+            border: 0;
         }
     </style>
 </head>
@@ -63,17 +71,75 @@
         <div id="innerCircle" class="inner-circle"></div>
     </div>
 
-    <div id="buttons" class="buttons"></div>
+    <div id="buttons" class="buttons">
+        <button class="button">1</button>
+        <button class="button">2</button>
+        <button class="button">3</button>
+        <button class="button">4</button>
+        <button class="button">5</button>
+    </div>
 
     <script>
         (function() {
-            document.getElementById("buttons").addEventListener("click", function() {
-                var circle = document.getElementById("circle"),
-                    innerCircle = document.getElementById("innerCircle");
+            // Variable declarations
+            var buttons = document.getElementsByClassName("button"),
+                circle = document.getElementById("circle"),
+                innerCircle = document.getElementById("innerCircle"),
+                degrees = 0, // Initialized the rotation of the circle to 0;
+                numOfSpins;
 
-                circle.style.transform = "rotate3d(0,1,0,360deg)";
-                innerCircle.style.transform = "rotate3d(1,0,0,360deg)";
+            // Loops through the buttons array
+            for (i = 0; i < buttons.length; i++) {
+                // Adds an event listener to each button
+                buttons[i].addEventListener("click", function() {
+                    // Assigns the HTML of this button to the global numOfSpins variable
+                    numOfSpins = this.textContent;
+                });
+            }
+
+            // Adds an event listner to the circleContainer
+            document.getElementById("circleContainer").addEventListener("click", function() {
+                // Spins the circles
+                spin(numOfSpins);
             });
+
+            // Spinning function
+            function spin(spins) {
+                // Parses the String passed to the function to a Number
+                var spinsInt = parseInt(spins);
+
+                // Switch on the Number
+                switch (spinsInt) {
+                    case 1:
+                        degreesToTurn(spinsInt);
+                        break;
+                    case 2:
+                        degreesToTurn(spinsInt);
+                        break;
+                    case 3:
+                        degreesToTurn(spinsInt);
+                        break;
+                    case 4:
+                        degreesToTurn(spinsInt);
+                        break;
+                    case 5:
+                        degreesToTurn(spinsInt);
+                        break;
+                    default:
+                        console.log('default case');
+                        break;
+                }
+            }
+
+            // Calculate the degrees to turn and add it to the current global degrees variable
+            function degreesToTurn(turns) {
+                // Calculate the amount of degrees to turn
+                degrees += turns * 180;
+
+                // Set the CSS Transform property and concatenate in the degrees Number
+                circle.style.transform = "rotate3d(1,0,0," + degrees + "deg)";
+                innerCircle.style.transform = "rotate3d(0,1,0," + degrees + "deg)";
+            }
         })();
     </script>
 </body>
