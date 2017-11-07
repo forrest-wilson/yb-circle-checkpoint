@@ -98,11 +98,11 @@
                 // Adds an event listener to each button
                 buttons[i].addEventListener("click", function() {
 
-                    // Assigns the HTML of this button to the global numOfSpins variable
-                    numOfSpins = this.textContent;
-
                     // Gets the elements in the document with the active-button class
                     var activeButtons = document.getElementsByClassName("active-button");
+
+                    // Assigns the HTML of this button to the global numOfSpins variable
+                    numOfSpins = this.textContent;
 
                     // Checks the length of the activeButtons array. There should only ever be one in the array
                     if (activeButtons.length > 0) {
@@ -110,7 +110,7 @@
                         // Loops through and removes the class from all elements in the array just in case
                         for (j = 0; j < activeButtons.length; j++) {
 
-                            // Removes the class from the button at index 0
+                            // Removes the class from the button at each index
                             activeButtons[j].classList.remove("active-button");
                         }
                     }
@@ -129,7 +129,7 @@
 
             // Spinning function
             function spin(spins) {
-                
+
                 // Parses the String passed to the function to a Number
                 var spinsInt = parseInt(spins);
 
