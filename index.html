@@ -62,6 +62,10 @@
             padding: 0;
             border: 0;
         }
+
+        .active-button {
+            background-color: red;
+        }
     </style>
 </head>
 <body>
@@ -90,32 +94,47 @@
 
             // Loops through the buttons array
             for (i = 0; i < buttons.length; i++) {
+
                 // Adds an event listener to each button
                 buttons[i].addEventListener("click", function() {
+
                     // Assigns the HTML of this button to the global numOfSpins variable
                     numOfSpins = this.textContent;
+
+                    // Gets the elements in the document with the active-button class
+                    var activeButtons = document.getElementsByClassName("active-button");
+
+                    // Checks the length of the activeButtons array. There should only ever be one in the array
+                    if (activeButtons.length > 0) {
+
+                        // Loops through and removes the class from all elements in the array just in case
+                        for (j = 0; j < activeButtons.length; j++) {
+
+                            // Removes the class from the button at index 0
+                            activeButtons[j].classList.remove("active-button");
+                        }
+                    }
+                    
+                    // Add the active class to the selected button
+                    this.classList.add("active-button");
                 });
             }
 
             // Adds an event listner to the circleContainer
             document.getElementById("circleContainer").addEventListener("click", function() {
+
                 // Spins the circles
                 spin(numOfSpins);
             });
 
             // Spinning function
             function spin(spins) {
+                
                 // Parses the String passed to the function to a Number
                 var spinsInt = parseInt(spins);
 
-                // Calls the degreesToTurn function
-                degreesToTurn(spinsInt);
-            }
-
-            // Calculate the degrees to turn and add it to the current global degrees variable
-            function degreesToTurn(turns) {
                 // Calculate the amount of degrees to turn
-                degrees += turns * 180;
+                degrees += spinsInt * 180;
 
                 // Set the CSS Transform property and concatenate in the degrees Number
                 circle.style.transform = "rotate3d(1,0,0," + degrees + "deg)";
