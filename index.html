@@ -108,27 +108,8 @@
                 // Parses the String passed to the function to a Number
                 var spinsInt = parseInt(spins);
 
-                // Switch on the Number
-                switch (spinsInt) {
-                    case 1:
-                        degreesToTurn(spinsInt);
-                        break;
-                    case 2:
-                        degreesToTurn(spinsInt);
-                        break;
-                    case 3:
-                        degreesToTurn(spinsInt);
-                        break;
-                    case 4:
-                        degreesToTurn(spinsInt);
-                        break;
-                    case 5:
-                        degreesToTurn(spinsInt);
-                        break;
-                    default:
-                        console.log('default case');
-                        break;
-                }
+                // Calls the degreesToTurn function
+                degreesToTurn(spinsInt);
             }
 
             // Calculate the degrees to turn and add it to the current global degrees variable
