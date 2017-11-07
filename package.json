@@ -16,7 +16,5 @@
     "url": "https://github.com/forrest-wilson/yb-circle-checkpoint/issues"
   },
   "homepage": "https://github.com/forrest-wilson/yb-circle-checkpoint#readme",
-  "dependencies": {
-    "bootstrap": "3.3.7"
-  }
+  "dependencies": {}
 }
